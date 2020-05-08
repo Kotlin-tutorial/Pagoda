@@ -1,14 +1,18 @@
-package com.ds.pagoda
+package com.ds.pagoda.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
-import android.view.WindowManager
 import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 import androidx.core.content.ContextCompat
+import com.ds.pagoda.R
+import com.ds.pagoda.fragments.CurrentWeatherFragment
 
 class MainActivity : AppCompatActivity() {
+
+    private val fragmentManager = supportFragmentManager
+    private val currentWeatherFragment = CurrentWeatherFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         val window: Window = this.window
         window.clearFlags(FLAG_TRANSLUCENT_STATUS)
         window.addFlags(FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(applicationContext,R.color.statusBarColor)
+        window.statusBarColor = ContextCompat.getColor(applicationContext, R.color.statusBarColor)
+
+
+        /* Display First Fragment initially */
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_continer, currentWeatherFragment)
+        fragmentTransaction.commit()
     }
 }

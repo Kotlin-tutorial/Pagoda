@@ -20,6 +20,42 @@
         android:background="@color/currentWeatherBGcolor"
         tools:context=".fragments.CurrentWeatherFragment">
 
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="San Francisco"
+            android:textSize="28sp"
+            android:textColor="#ffffff"
+            android:fontFamily="casual"
+            android:layout_marginTop="92dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/dateAndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday 7:30 PM"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            app:textAllCaps="true"
+            android:fontFamily="monospace"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/location"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            
+            app:layout_constraintTop_toBottomOf="@+id/dateAndTime"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

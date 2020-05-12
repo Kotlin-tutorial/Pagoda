@@ -1,4 +1,4 @@
-package com.ds.pagoda.activities
+package com.ds.pagoda.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
 import android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
 import androidx.core.content.ContextCompat
 import com.ds.pagoda.R
-import com.ds.pagoda.fragments.CurrentWeatherFragment
+import com.ds.pagoda.ui.fragments.CurrentWeatherFragment
 
 class MainActivity : AppCompatActivity() {
 

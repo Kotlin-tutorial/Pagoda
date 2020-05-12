@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.ds.pagoda.fragments.CurrentWeatherFragmentViewModel"
+            type="com.ds.pagoda.ui.fragments.CurrentWeatherFragmentViewModel"
             />
 
     </data>
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/currentWeatherBGcolor"
-        tools:context=".fragments.CurrentWeatherFragment">
+        tools:context=".ui.fragments.CurrentWeatherFragment">
 
         <TextView
             android:id="@+id/location"

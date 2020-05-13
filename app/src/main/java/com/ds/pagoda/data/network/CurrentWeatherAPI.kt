@@ -1,14 +1,16 @@
 package com.ds.pagoda.data.network
 
+import com.ds.pagoda.data.network.responces.CurrentWeatherResponce
 import okhttp3.ResponseBody
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface CurrentWeatherAPI {
     @GET("weather?q=San%20Fransisco,us&appid=439d4b804bc8187953eb36d2a8c26a02")
-    fun getCurrentWeather(): Call<ResponseBody>
+    suspend fun getCurrentWeather(): Response<CurrentWeatherResponce>
 
     companion object{
         operator fun invoke(): CurrentWeatherAPI {

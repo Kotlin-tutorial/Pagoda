@@ -1,8 +1,10 @@
 package com.ds.pagoda.data.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ds.pagoda.data.network.CurrentWeatherAPI
+import com.ds.pagoda.data.network.responces.CurrentWeatherResponce
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -10,19 +12,14 @@ import retrofit2.Response
 
 class CurrentWeatherRepository {
 
-    fun getCurrentWeather(): LiveData<String> {
+    suspend fun getCurrentWeather(): Response<CurrentWeatherResponce> {
 
-        val currentWeatherResponce = MutableLiveData<String>()
+        val currentWeatherResponce: Response<CurrentWeatherResponce> = CurrentWeatherAPI().getCurrentWeather()
 
-        CurrentWeatherAPI().getCurrentWeather().enqueue(object : Callback<ResponseBody>{
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
 
-            }
+        Log.e("list_responce","symbol " + (currentWeatherResponce.body()?.toString() ?: "N/A"))
 
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                currentWeatherResponce.value = response.body()?.toString()
-            }
-        })
+
 
         return currentWeatherResponce
     }

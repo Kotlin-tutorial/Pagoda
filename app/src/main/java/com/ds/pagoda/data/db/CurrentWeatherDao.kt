@@ -13,5 +13,5 @@ interface CurrentWeatherDao {
     suspend fun insertCurrentWeather(currentWeatherEntity: CurrentWeatherEntity)
 
     @Query("SELECT * FROM current_weather")
-    fun getCurrentWeather() : LiveData<CurrentWeatherEntity>
+     fun getCurrentWeather() : LiveData<CurrentWeatherEntity>
 }

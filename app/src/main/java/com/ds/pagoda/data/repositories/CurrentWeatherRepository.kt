@@ -30,7 +30,7 @@ class CurrentWeatherRepository(
         db.getCurrentWeatherDao().insertCurrentWeather(currentWeather)
     }
 
-    suspend fun getCurrentWeatherFromDB(): LiveData<CurrentWeatherEntity> {
+     fun getCurrentWeatherFromDB(): LiveData<CurrentWeatherEntity> {
         return db.getCurrentWeatherDao().getCurrentWeather()
     }
 }

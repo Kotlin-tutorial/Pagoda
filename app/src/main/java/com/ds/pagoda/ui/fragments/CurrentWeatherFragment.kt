@@ -1,11 +1,13 @@
 package com.ds.pagoda.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.ds.pagoda.R
 import com.ds.pagoda.databinding.FragmentCurrentWeatherBinding
@@ -36,7 +38,16 @@ class CurrentWeatherFragment : Fragment(), KodeinAware {
 
         binding.viewmodel = viewModel
 
-        viewModel.getCurrentWeather()
+        viewModel.getCurrentWeatherFromAPIandSaveToDB()
+
+        viewModel.getCurrentWeather().observe(viewLifecycleOwner, Observer {
+            currentWeather ->
+
+            if(currentWeather != null) {
+                Log.e("list_responce","symbol " + (currentWeather.name ?: "N/A"))
+
+            }
+        })
 
         return binding.root
     }

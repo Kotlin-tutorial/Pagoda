@@ -45,7 +45,7 @@ class CurrentWeatherFragment : Fragment(), KodeinAware {
 
             if(currentWeather != null) {
                 Log.e("list_responce","symbol " + (currentWeather.name ?: "N/A"))
-
+            
             }
         })
 

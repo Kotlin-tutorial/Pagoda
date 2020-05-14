@@ -7,14 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
-
 import com.ds.pagoda.R
 import com.ds.pagoda.databinding.FragmentCurrentWeatherBinding
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
+import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.kcontext
 
 /**
  * A simple [Fragment] subclass.
  */
-class CurrentWeatherFragment : Fragment() {
+class CurrentWeatherFragment : Fragment(), KodeinAware {
+
+    final override val kodeinContext = kcontext<Fragment>(this)
+    final override val kodein: Kodein by kodein()
+
+    private val factory : CurrentWeatherFragmentViewModelFactory by instance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +32,7 @@ class CurrentWeatherFragment : Fragment() {
     ): View? {
 
         var binding: FragmentCurrentWeatherBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_current_weather,container,false)
-        val viewModel = ViewModelProviders.of(this).get(CurrentWeatherFragmentViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this,factory).get(CurrentWeatherFragmentViewModel::class.java)
 
         binding.viewmodel = viewModel
 

@@ -6,11 +6,15 @@ import com.ds.pagoda.data.repositories.CurrentWeatherRepository
 import com.ds.pagoda.utils.Coroutines
 import retrofit2.Response
 
-class CurrentWeatherFragmentViewModel: ViewModel() {
+class CurrentWeatherFragmentViewModel(
+
+    private val currentWeatherRepository: CurrentWeatherRepository
+
+): ViewModel() {
 
     fun getCurrentWeather(){
         Coroutines.backGround{
-            val currentWeatherResponce : Response<CurrentWeatherResponce> = CurrentWeatherRepository().getCurrentWeather()
+            val currentWeatherResponce : Response<CurrentWeatherResponce> = currentWeatherRepository.getCurrentWeather()
         }
     }
 }

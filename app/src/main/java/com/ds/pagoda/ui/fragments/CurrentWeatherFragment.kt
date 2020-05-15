@@ -27,7 +27,6 @@ class CurrentWeatherFragment : Fragment(), KodeinAware {
 
     private val factory : CurrentWeatherFragmentViewModelFactory by instance()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +44,7 @@ class CurrentWeatherFragment : Fragment(), KodeinAware {
 
             if(currentWeather != null) {
                 Log.e("list_responce","symbol " + (currentWeather.name ?: "N/A"))
-            
+                binding.location.text = currentWeather.name
             }
         })
 

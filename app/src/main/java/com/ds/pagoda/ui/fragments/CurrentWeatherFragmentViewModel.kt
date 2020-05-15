@@ -39,4 +39,7 @@ class CurrentWeatherFragmentViewModel(
         return currentWeathe
     }
 
+
+
+
 }
